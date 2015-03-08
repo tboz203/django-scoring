@@ -1,0 +1,13 @@
+<!-- vim: set ft=htmldjango : -->
+{% load staticfiles %}
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'di_scoring/bootstrap/css/bootstrap.css' %}" />
+</head>
+<body>
+  <h1>DI Scoring App</h1>
+  <p>I really don't know what I'm doing yet.</p>
+  <a href="{% url 'di_scoring:login' %}">login</a>
+  <a href="{% url 'di_scoring:logout' %}">logout</a>
+</body>
+</html>

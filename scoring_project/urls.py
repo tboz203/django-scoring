@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^scoring/', include('di_scoring.urls', namespace='di_scoring')),
 )
