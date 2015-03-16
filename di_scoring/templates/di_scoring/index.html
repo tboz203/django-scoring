@@ -2,12 +2,14 @@
 {% load staticfiles %}
 <html>
 <head>
-  {# <link rel="stylesheet" type="text/css" href="{% static 'di_scoring/bootstrap/css/bootstrap.css' %}" /> #}
+  <link rel="stylesheet" type="text/css" href="{% static 'di_scoring/bootstrap/css/bootstrap.css' %}" />
 </head>
 <body>
+<div class='container'>
   <h1>DI Scoring App</h1>
   <p>I really don't know what I'm doing yet.</p>
-  <p><a href="{% url 'di_scoring:login' %}">login</a></p>
-  <p><a href="{% url 'di_scoring:logout' %}">logout</a></p>
+  {# <p><a href="{% url 'di_scoring:login' %}">login</a></p> #}
+  {# <p><a href="{% url 'di_scoring:logout' %}">logout</a></p> #}
+</div>
 </body>
 </html>

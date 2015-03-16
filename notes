@@ -1,0 +1,65 @@
+# Notes
+
+### 2015-03-14
+okay, we've got the model layer down.
+
+- Manager: name, phone number
+- Locations: location
+- Team: name, [manager], school
+- Team Challenge: name
+- TC fields: name, type, [team challenge]
+- TC appraisers: name, [team challenge]
+- TC event: time, [team], [team challenge], [location]
+- TC scores: value, [TC field], [TC appraiser], [TC event]
+- IC appraisers: name
+- IC event: time, [team], [location]
+- IC scores: value, [IC event], [IC appraiser]
+
+- TC appraiser permissions: [TC appraiser], [TC fields]
+
+> // roles?
+> // need to work out the specifics of how a role would work
+
+The pieces that are left are the templates, the views, and the `urlconf`.
+We *could* start working on the templates, but I think we need to work out
+what the views should be, and how they should interact and such.
+
+In the original app, the main screen was a list of teams grouped by ...
+Dangit. I forgot the classifications
+
+- Team: name, [manager], school, classification ((E)lementary, (M)iddle, (H)igh, (U)niversity, (O)ther)
+
+I think there's like "project outreach", and possibly something else. We'll
+check it later and correct.
+
+Back to the views: the main screen was a list of teams grouped by
+classification. Then there was a list of all teams. There were lists for the
+TC/IC appraisers, but those should be admin-side.
+
+> Note: the app is intended for scorers/head appraisers/appraisers to enter
+> scores into. The administrators will be either just the head scorer, or the
+> group of scorers. I imagine there will/could also be pages that get sent to
+> managers to put team info into.
+
+There will be a page for inputting scores for each event. I'm thinking a page
+for all scores related to an event (shows all appraisers input), and then
+individual pages per appraiser. There should be a page that summarizes all of
+the team's info going in (i.e.: not scores), and then pages summarizing their
+scores. We could do pages for managers to keep up-to-date on their team(s), and
+pages for the general public wanting to see performances. 
+
+... We should probably narrow down what we want to start with, and do that.
+Let's do the list of all teams, and the event detail page.
+
+The urls will look something like this:
+    /scoring/                         -> the all-teams list
+    /scoring/<team>/                  -> the info detail
+    /scoring/<team>/scores/           -> the scores detail
+    /scoring/<team>/team-challenge    -> the `tc_event` detail
+    /scoring/team-challenges          -> the `tc_event` list
+    etc...
+
+---
+
+reading through documentation on writing views. spent 3 hours playing with
+admin site, 2 of which were setting the list views to display all columns
