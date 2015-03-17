@@ -1,0 +1,19 @@
+{# vim: set ft=htmldjango : #}
+{% extends "di_scoring/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ object.name }}: DI Scoring App{% endblock %}
+
+{% block main %}
+<h1>{{ object.name }}: DI Scoring App</h1>
+<div class='well'>
+  <table>
+    <tr><td><b>Team Name</b></td><td>{{ object.name }}</td></tr>
+    <tr><td><b>Classification</b></td><td>{{ object.classification }}</td></tr>
+    <tr><td><b>School</b></td><td>{{ object.school }}</td></tr>
+    <tr><td><b>Team Manager</b</td><td>{{ object.manager }}</td></tr>
+    <tr><td><b>Team challenge</b</td><td>{{ object.team_challenge }}</td></tr>
+  </table>
+</div>
+<a href="{% url 'di_scoring:team_list' %}">Back to team list</a>
+{% endblock %}

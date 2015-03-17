@@ -1,0 +1,30 @@
+{# vim: set ft=htmldjango : #}
+{% extends "di_scoring/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Teams: DI Scoring App{% endblock %}
+
+{% block main %}
+<h1>DI Scoring App: Teams</h1>
+<div class='well'>
+<table>
+<tr>
+  <th>Team Name</th>
+  <th>Classification</th>
+  <th>School</th>
+  <th>Team Manager</th>
+  <th>Team Challenge</th>
+</tr>
+{% for team in object_list %}
+{# <a href="{% url 'di_scoring:team_detail' slug=team.name %}" > #}
+  <tr style="cursor:pointer" onclick="location.href = '{% url 'di_scoring:team_detail' slug=team.name %}'">
+    <td>{{ team.name }}</td>
+    <td>{{ team.classification }}</td>
+    <td>{{ team.school }}</td>
+    <td>{{ team.manager }}</td>
+    <td>{{ team.team_challenge }}</td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}
